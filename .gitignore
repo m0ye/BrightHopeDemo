@@ -1,0 +1,17 @@
+# UE Project Base
+.idea/
+.vs/
+.vsconfig
+*.user
+Binaries/
+Build/
+Content/Developers/
+DerivedDataCache/
+Intermediate/
+Plugins/
+Saved/
+*.sln
+
+# lfs
+hooks/
+lfs/
