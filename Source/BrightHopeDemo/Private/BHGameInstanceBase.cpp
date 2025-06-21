@@ -9,29 +9,27 @@ void UBHGameInstanceBase::Init()
 {
 	Super::Init();
 
-	if (!bDebugMode)
-	{
-		GameScript = MakeShared<puerts::FJsEnv>();
-		GameScript->Start("MainGame");
-	}
-}
-
-void UBHGameInstanceBase::OnStart()
-{
-	Super::OnStart();
-
-	if (bDebugMode) 
+	if (bDebugMode)
 	{
 		GameScript = MakeShared<puerts::FJsEnv>(
 			std::make_unique<puerts::DefaultJSModuleLoader>(TEXT("JavaScript")),
 			std::make_shared<puerts::FDefaultLogger>(),
-			8080
+			JsDebugPort
 		);
 		if (bWaitForDebugger)
 		{
 			GameScript->WaitDebugger();
 		}
-		GameScript->Start("MainGame");
+	}
+	else
+	{
+		GameScript = MakeShared<puerts::FJsEnv>();
+	}
+	
+	if (!JsEntryFile.IsEmpty())
+	{
+		//进入JS入口程序
+		GameScript->Start(JsEntryFile);
 	}
 }
 
