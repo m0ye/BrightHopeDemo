@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright © m0ye. All rights reserved.
 
 
 #include "BHGameInstanceBase.h"
@@ -9,9 +9,30 @@ void UBHGameInstanceBase::Init()
 {
 	Super::Init();
 
-	GameScript=MakeShared<puerts::FJsEnv>();
+	if (!bDebugMode)
+	{
+		GameScript = MakeShared<puerts::FJsEnv>();
+		GameScript->Start("MainGame");
+	}
+}
 
-	GameScript->Start("MainGame");
+void UBHGameInstanceBase::OnStart()
+{
+	Super::OnStart();
+
+	if (bDebugMode) 
+	{
+		GameScript = MakeShared<puerts::FJsEnv>(
+			std::make_unique<puerts::DefaultJSModuleLoader>(TEXT("JavaScript")),
+			std::make_shared<puerts::FDefaultLogger>(),
+			8080
+		);
+		if (bWaitForDebugger)
+		{
+			GameScript->WaitDebugger();
+		}
+		GameScript->Start("MainGame");
+	}
 }
 
 void UBHGameInstanceBase::Shutdown()
