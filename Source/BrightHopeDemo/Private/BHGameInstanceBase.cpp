@@ -25,11 +25,16 @@ void UBHGameInstanceBase::Init()
 	{
 		GameScript = MakeShared<puerts::FJsEnv>();
 	}
-	
+
 	if (!JsEntryFile.IsEmpty())
 	{
-		//进入JS入口程序
-		GameScript->Start(JsEntryFile);
+		//传递给入口脚本的参数
+		TArray<TPair<FString, UObject*>> args;
+		//添加本游戏实例作为参数
+		args.Add(TPair<FString, UObject*>(TEXT("GameInstance"), this));
+
+		//进入JS入口脚本
+		GameScript->Start(JsEntryFile, args);
 	}
 }
 
@@ -38,4 +43,9 @@ void UBHGameInstanceBase::Shutdown()
 	Super::Shutdown();
 
 	GameScript.Reset();
+}
+
+void UBHGameInstanceBase::TSFuncCallTS(FString FunctionName, UObject* Obj)
+{
+	FTSFuncCall.ExecuteIfBound(FunctionName, Obj);
 }

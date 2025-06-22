@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
-#include "JsEnv/Private/ContainerWrapper.h"
 #include "BHGameInstanceBase.generated.h"
 
 namespace puerts
@@ -21,6 +20,10 @@ class BRIGHTHOPEDEMO_API UBHGameInstanceBase : public UGameInstance
 	GENERATED_BODY()
 
 public:
+	virtual void Init() override;
+	virtual void Shutdown() override;
+
+	
 	//JS入口文件
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Puerts | Default")
 	FString JsEntryFile;
@@ -41,11 +44,18 @@ public:
 	bool bWaitForDebugger;
 #pragma endregion
 
-private:
-	//puerts
-	TSharedPtr<puerts::FJsEnv> GameScript;
+#pragma region CallTSFunction
+	//调用TS函数的委托代理
+	DECLARE_DYNAMIC_DELEGATE_TwoParams(FTSFuncCallDel,FString,FunctionName,UObject*,Obj);
+	UPROPERTY()
+	FTSFuncCallDel FTSFuncCall;
 
-public:
-	virtual void Init() override;
-	virtual void Shutdown() override;
+	//调用TS函数
+	UFUNCTION(BlueprintCallable)
+	void TSFuncCallTS(FString FunctionName, UObject* Obj);
+#pragma endregion
+
+private:
+	//puerts脚本环境
+	TSharedPtr<puerts::FJsEnv> GameScript;
 };
