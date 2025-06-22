@@ -11,6 +11,7 @@ void UBHGameInstanceBase::Init()
 
 	if (bDebugMode)
 	{
+		//创建脚本Debug环境
 		GameScript = MakeShared<puerts::FJsEnv>(
 			std::make_unique<puerts::DefaultJSModuleLoader>(TEXT("JavaScript")),
 			std::make_shared<puerts::FDefaultLogger>(),
@@ -23,6 +24,7 @@ void UBHGameInstanceBase::Init()
 	}
 	else
 	{
+		//创建普通脚本环境
 		GameScript = MakeShared<puerts::FJsEnv>();
 	}
 

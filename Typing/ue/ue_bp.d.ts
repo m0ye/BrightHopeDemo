@@ -6,31 +6,31 @@ declare module "ue" {
 
     import * as UE from "ue"
 
-// __TYPE_DECL_START: 
-    namespace Game.Blueprints.GI_BH {
-        class GI_BH_C extends UE.BHGameInstanceBase {
+// __TYPE_DECL_START: 1542ACB8467E30E2EFE548808D1A345C
+    namespace Game.Blueprints.BP_BHGI {
+        class BP_BHGI_C extends UE.BHGameInstanceBase {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
             static StaticClass(): Class;
-            static Find(OrigInName: string, Outer?: Object): GI_BH_C;
-            static Load(InName: string): GI_BH_C;
+            static Find(OrigInName: string, Outer?: Object): BP_BHGI_C;
+            static Load(InName: string): BP_BHGI_C;
         
-            __tid_GI_BH_C_0__: boolean;
+            __tid_BP_BHGI_C_0__: boolean;
         }
         
     }
 
 // __TYPE_DECL_END
-// __TYPE_DECL_START: 
-    namespace Game.Blueprints.Test.BP_Test {
-        class BP_Test_C extends UE.Actor {
+// __TYPE_DECL_START: 21E39E104CAAE9E5691294BC73A7EBBE
+    namespace Game.Blueprints.Test.BP_Test2 {
+        class BP_Test2_C extends UE.Actor {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
             Sphere: UE.StaticMeshComponent;
             DefaultSceneRoot: UE.SceneComponent;
             static StaticClass(): Class;
-            static Find(OrigInName: string, Outer?: Object): BP_Test_C;
-            static Load(InName: string): BP_Test_C;
+            static Find(OrigInName: string, Outer?: Object): BP_Test2_C;
+            static Load(InName: string): BP_Test2_C;
         
-            __tid_BP_Test_C_0__: boolean;
+            __tid_BP_Test2_C_0__: boolean;
         }
         
     }
