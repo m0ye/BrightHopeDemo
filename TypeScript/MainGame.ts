@@ -12,5 +12,9 @@ const GameInstance = argv.getByName("GameInstance") as UE.BHGameInstanceBase;
 GameInstance.FTSFuncCall.Bind((FunctionName, Obj) =>
     (Obj as any)[FunctionName]());
 
-// 导入模块（mixin蓝图脚本）
-import "./Blueprints/Test/BP_Test2"
+/**
+ * 导入模块（mixin蓝图脚本）
+ */
+// import "./Blueprints/Test/BP_Test2"
+import "./Blueprints/Core/BP_BHPlayer"
+import "./Blueprints/Core/BP_BHPlayerController"

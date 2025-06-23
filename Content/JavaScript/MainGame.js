@@ -9,6 +9,10 @@ const GameInstance = puerts_1.argv.getByName("GameInstance");
  *  @Obj 函数所在对象
  */
 GameInstance.FTSFuncCall.Bind((FunctionName, Obj) => Obj[FunctionName]());
-// 导入模块（mixin蓝图脚本）
-require("./Blueprints/Test/BP_Test2");
+/**
+ * 导入模块（mixin蓝图脚本）
+ */
+// import "./Blueprints/Test/BP_Test2"
+require("./Blueprints/Core/BP_BHPlayer");
+require("./Blueprints/Core/BP_BHPlayerController");
 //# sourceMappingURL=MainGame.js.map
