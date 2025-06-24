@@ -16,5 +16,7 @@ GameInstance.FTSFuncCall.Bind((FunctionName, Obj) =>
  * 导入模块（mixin蓝图脚本）
  */
 // import "./Blueprints/Test/BP_Test2"
-import "./Blueprints/Core/BP_BHPlayer"
-import "./Blueprints/Core/BP_BHPlayerController"
+// import "./Blueprints/Core/BP_BHCharacterBase"
+// import "./Blueprints/Core/BP_BHPlayerControllerBase"
+import "./Blueprints/Gameplay/BP_BHPlayer"
+import "./Blueprints/Gameplay/BP_BHPlayerController"

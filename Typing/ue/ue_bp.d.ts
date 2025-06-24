@@ -28,7 +28,6 @@ declare module "ue" {
             Sphere: UE.StaticMeshComponent;
             DefaultSceneRoot: UE.SceneComponent;
             ExecuteUbergraph_BP_Test2(EntryPoint: number) : void;
-            ReceiveBeginPlay() : void;
             /*
              *Event called every frame, if ticking is enabled
              */
@@ -59,35 +58,6 @@ declare module "ue" {
 
 // __TYPE_DECL_END
 // __TYPE_DECL_START: 
-    namespace Game.Blueprints.Core.BP_BHPlayerController {
-        class BP_BHPlayerController_C extends UE.BHPlayerControllerBase {
-            constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
-            static StaticClass(): Class;
-            static Find(OrigInName: string, Outer?: Object): BP_BHPlayerController_C;
-            static Load(InName: string): BP_BHPlayerController_C;
-        
-            __tid_BP_BHPlayerController_C_0__: boolean;
-        }
-        
-    }
-
-// __TYPE_DECL_END
-// __TYPE_DECL_START: 
-    namespace Game.Blueprints.Core.BP_BHPlayer {
-        class BP_BHPlayer_C extends UE.BHCharacterBase {
-            constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
-            Camera: UE.CameraComponent;
-            static StaticClass(): Class;
-            static Find(OrigInName: string, Outer?: Object): BP_BHPlayer_C;
-            static Load(InName: string): BP_BHPlayer_C;
-        
-            __tid_BP_BHPlayer_C_0__: boolean;
-        }
-        
-    }
-
-// __TYPE_DECL_END
-// __TYPE_DECL_START: 
     namespace Game.Blueprints.Test.BP_Test {
         class BP_Test_C extends UE.Actor {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
@@ -104,6 +74,75 @@ declare module "ue" {
             static Load(InName: string): BP_Test_C;
         
             __tid_BP_Test_C_0__: boolean;
+        }
+        
+    }
+
+// __TYPE_DECL_END
+// __TYPE_DECL_START: 
+    namespace Game.Blueprints.Core.BP_BHCharacterBase {
+        class BP_BHCharacterBase_C extends UE.BHCharacterBase {
+            constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+            UberGraphFrame: UE.PointerToUberGraphFrame;
+            ExecuteUbergraph_BP_BHCharacterBase(EntryPoint: number) : void;
+            /*
+             *Event when play begins for this actor.
+             */
+            ReceiveBeginPlay() : void;
+            static StaticClass(): Class;
+            static Find(OrigInName: string, Outer?: Object): BP_BHCharacterBase_C;
+            static Load(InName: string): BP_BHCharacterBase_C;
+        
+            __tid_BP_BHCharacterBase_C_0__: boolean;
+        }
+        
+    }
+
+// __TYPE_DECL_END
+// __TYPE_DECL_START: 
+    namespace Game.Blueprints.Gameplay.BP_BHPlayer {
+        class BP_BHPlayer_C extends UE.Game.Blueprints.Core.BP_BHCharacterBase.BP_BHCharacterBase_C {
+            constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+            Camera: UE.CameraComponent;
+            static StaticClass(): Class;
+            static Find(OrigInName: string, Outer?: Object): BP_BHPlayer_C;
+            static Load(InName: string): BP_BHPlayer_C;
+        
+            __tid_BP_BHPlayer_C_0__: boolean;
+        }
+        
+    }
+
+// __TYPE_DECL_END
+// __TYPE_DECL_START: 
+    namespace Game.Blueprints.Core.BP_BHPlayerControllerBase {
+        class BP_BHPlayerControllerBase_C extends UE.BHPlayerControllerBase {
+            constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+            UberGraphFrame: UE.PointerToUberGraphFrame;
+            ExecuteUbergraph_BP_BHPlayerControllerBase(EntryPoint: number) : void;
+            /*
+             *Event when play begins for this actor.
+             */
+            ReceiveBeginPlay() : void;
+            static StaticClass(): Class;
+            static Find(OrigInName: string, Outer?: Object): BP_BHPlayerControllerBase_C;
+            static Load(InName: string): BP_BHPlayerControllerBase_C;
+        
+            __tid_BP_BHPlayerControllerBase_C_0__: boolean;
+        }
+        
+    }
+
+// __TYPE_DECL_END
+// __TYPE_DECL_START: 
+    namespace Game.Blueprints.Gameplay.BP_BHPlayerController {
+        class BP_BHPlayerController_C extends UE.Game.Blueprints.Core.BP_BHPlayerControllerBase.BP_BHPlayerControllerBase_C {
+            constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+            static StaticClass(): Class;
+            static Find(OrigInName: string, Outer?: Object): BP_BHPlayerController_C;
+            static Load(InName: string): BP_BHPlayerController_C;
+        
+            __tid_BP_BHPlayerController_C_0__: boolean;
         }
         
     }

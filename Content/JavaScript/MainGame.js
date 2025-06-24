@@ -13,6 +13,8 @@ GameInstance.FTSFuncCall.Bind((FunctionName, Obj) => Obj[FunctionName]());
  * 导入模块（mixin蓝图脚本）
  */
 // import "./Blueprints/Test/BP_Test2"
-require("./Blueprints/Core/BP_BHPlayer");
-require("./Blueprints/Core/BP_BHPlayerController");
+// import "./Blueprints/Core/BP_BHCharacterBase"
+// import "./Blueprints/Core/BP_BHPlayerControllerBase"
+require("./Blueprints/Gameplay/BP_BHPlayer");
+require("./Blueprints/Gameplay/BP_BHPlayerController");
 //# sourceMappingURL=MainGame.js.map
