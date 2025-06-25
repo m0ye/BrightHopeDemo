@@ -103,7 +103,13 @@ declare module "ue" {
     namespace Game.Blueprints.Gameplay.BP_BHPlayer {
         class BP_BHPlayer_C extends UE.Game.Blueprints.Core.BP_BHCharacterBase.BP_BHCharacterBase_C {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+            UberGraphFrame: UE.PointerToUberGraphFrame;
             Camera: UE.CameraComponent;
+            ExecuteUbergraph_BP_BHPlayer(EntryPoint: number) : void;
+            /*
+             *Event when play begins for this actor.
+             */
+            ReceiveBeginPlay() : void;
             static StaticClass(): Class;
             static Find(OrigInName: string, Outer?: Object): BP_BHPlayer_C;
             static Load(InName: string): BP_BHPlayer_C;
@@ -118,11 +124,6 @@ declare module "ue" {
     namespace Game.Blueprints.Core.BP_BHPlayerControllerBase {
         class BP_BHPlayerControllerBase_C extends UE.BHPlayerControllerBase {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
-            UberGraphFrame: UE.PointerToUberGraphFrame;
-            ExecuteUbergraph_BP_BHPlayerControllerBase(EntryPoint: number) : void;
-            /*
-             *Event when play begins for this actor.
-             */
             ReceiveBeginPlay() : void;
             static StaticClass(): Class;
             static Find(OrigInName: string, Outer?: Object): BP_BHPlayerControllerBase_C;
@@ -138,6 +139,12 @@ declare module "ue" {
     namespace Game.Blueprints.Gameplay.BP_BHPlayerController {
         class BP_BHPlayerController_C extends UE.Game.Blueprints.Core.BP_BHPlayerControllerBase.BP_BHPlayerControllerBase_C {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
+            UberGraphFrame: UE.PointerToUberGraphFrame;
+            BaseInputMapping: UE.InputMappingContext;
+            MoveAction: UE.InputAction;
+            ExecuteUbergraph_BP_BHPlayerController(EntryPoint: number) : void;
+            GetEnhanceInputSubsystem() : UE.EnhancedInputLocalPlayerSubsystem;
+            ReceiveBeginPlay() : void;
             static StaticClass(): Class;
             static Find(OrigInName: string, Outer?: Object): BP_BHPlayerController_C;
             static Load(InName: string): BP_BHPlayerController_C;

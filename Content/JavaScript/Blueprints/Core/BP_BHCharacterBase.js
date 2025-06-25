@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TS_BHCharBase = void 0;
+/**
+ * 角色基类蓝图
+ */
 const UE = require("ue");
 const puerts_1 = require("puerts");
 //加载蓝图类，直接在引擎编辑器复制obj路径即可，需要在末尾加对应类_C

@@ -1,3 +1,6 @@
+/**
+ * 角色基类蓝图
+ */
 import * as UE from "ue";
 import {blueprint} from 'puerts';
 

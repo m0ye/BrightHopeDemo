@@ -1,3 +1,6 @@
+/**
+ * 玩家控制器基类蓝图
+ */
 import * as UE from "ue";
 import {blueprint} from 'puerts';
 
@@ -5,19 +8,19 @@ import {blueprint} from 'puerts';
 const ucls_BHPCBase = UE.Class.Load("/Game/Blueprints/Core/BP_BHPlayerControllerBase.BP_BHPlayerControllerBase_C");
 //获取对应js类，mixin要用到
 const jsCls_BHPCBase = blueprint.tojs
-    <typeof UE.Game.Blueprints.Core.BP_BHPlayerControllerBase.BP_BHPlayerControllerBase_C>(ucls_BHPCBase);
+    < typeof UE.Game.Blueprints.Core.BP_BHPlayerControllerBase.BP_BHPlayerControllerBase_C > (ucls_BHPCBase);
 
 //创建继承蓝图类的ts类接口，用来获取类型提示
-interface TS_BHPCBase extends UE.Game.Blueprints.Core.BP_BHPlayerControllerBase.BP_BHPlayerControllerBase_C {
+export interface TS_BHPCBase extends UE.Game.Blueprints.Core.BP_BHPlayerControllerBase.BP_BHPlayerControllerBase_C {
 }
 
 /**
  * 创建继承并实现ts类接口的本体类，在这里编写类成员方法
  * 建议在蓝图创建类的成员字段，在脚本编写类的成员方法
  */
-class TS_BHPCBase  implements TS_BHPCBase {
+export class TS_BHPCBase implements TS_BHPCBase {
     ReceiveBeginPlay() {
-        console.log("This message from TS_BHPCBase!");
+        // console.log("This message from TS_BHPCBase!");
     }
 }
 

@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * 玩家类蓝图
+ */
 const UE = require("ue");
 const puerts_1 = require("puerts");
 const BP_BHCharacterBase_1 = require("../Core/BP_BHCharacterBase");

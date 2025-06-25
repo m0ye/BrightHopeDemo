@@ -1,3 +1,6 @@
+/**
+ * 玩家类蓝图
+ */
 import * as UE from "ue";
 import {blueprint} from 'puerts';
 import {TS_BHCharBase} from "../Core/BP_BHCharacterBase";
