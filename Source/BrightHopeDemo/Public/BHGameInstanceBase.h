@@ -56,6 +56,6 @@ public:
 #pragma endregion
 
 private:
-	//puerts脚本环境
+	//puerts虚拟机
 	TSharedPtr<puerts::FJsEnv> GameScript;
 };

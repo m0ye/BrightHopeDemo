@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TS_BHPlayer = void 0;
 /**
  * 玩家类蓝图
  */
@@ -11,15 +12,14 @@ const ucls_BHPlayer = UE.Class.Load("/Game/Blueprints/Gameplay/BP_BHPlayer.BP_BH
 //获取对应js类，mixin要用到
 const jsCls_BHPlayer = puerts_1.blueprint.tojs(ucls_BHPlayer);
 /**
- * 创建继承并实现ts类接口的本体类，在这里编写类成员方法
- * 建议在蓝图创建类的成员字段，在脚本编写类的成员方法
+ * TS玩家类
  */
 class TS_BHPlayer extends BP_BHCharacterBase_1.TS_BHCharBase {
     ReceiveBeginPlay() {
         super.ReceiveBeginPlay();
-        console.log("This message from TS_BHPlayer!");
     }
 }
+exports.TS_BHPlayer = TS_BHPlayer;
 //mixin蓝图
 puerts_1.blueprint.mixin(jsCls_BHPlayer, TS_BHPlayer);
 //# sourceMappingURL=BP_BHPlayer.js.map

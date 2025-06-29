@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TS_BHPlayerController = void 0;
 /**
  * 玩家控制器蓝图
  */
@@ -11,19 +12,31 @@ const ucls_BHPlayerController = UE.Class.Load("/Game/Blueprints/Gameplay/BP_BHPl
 //获取对应js类，mixin要用到
 const jsCls_BHPlayerController = puerts_1.blueprint.tojs(ucls_BHPlayerController);
 /**
- * 创建继承并实现ts类接口的本体类，在这里编写类成员方法
- * 建议在蓝图创建类的成员字段，在脚本编写类的成员方法
+ * TS玩家控制器类
  */
 class TS_BHPlayerController extends BP_BHPlayerControllerBase_1.TS_BHPCBase {
     ReceiveBeginPlay() {
         super.ReceiveBeginPlay();
-        // console.log("This message from TS_BHPlayerController!");
         let EnhancedInputSubsystem = this.GetEnhanceInputSubsystem();
         if (EnhancedInputSubsystem) {
             EnhancedInputSubsystem.AddMappingContext(this.BaseInputMapping, 0);
         }
+        this.InputBindActions();
+    }
+    //绑定输入处理函数
+    InputBindActions() {
+        let InputComp = this.GetComponentByClass(UE.EnhancedInputComponent.StaticClass());
+        InputComp.BHBindAction(this.MoveAction, UE.ETriggerEvent.Triggered, this, "HandleMove");
+        InputComp.BHBindAction(this.TestAction, UE.ETriggerEvent.Started, this, "HandleTest");
+    }
+    HandleMove() {
+        console.log("Handle move from TS_BHPlayerController");
+    }
+    HandleTest() {
+        console.log("Handle test from TS_BHPlayerController");
     }
 }
+exports.TS_BHPlayerController = TS_BHPlayerController;
 //mixin蓝图
 puerts_1.blueprint.mixin(jsCls_BHPlayerController, TS_BHPlayerController);
 //# sourceMappingURL=BP_BHPlayerController.js.map

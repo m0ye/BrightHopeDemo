@@ -124,7 +124,6 @@ declare module "ue" {
     namespace Game.Blueprints.Core.BP_BHPlayerControllerBase {
         class BP_BHPlayerControllerBase_C extends UE.BHPlayerControllerBase {
             constructor(Outer?: Object, Name?: string, ObjectFlags?: number);
-            ReceiveBeginPlay() : void;
             static StaticClass(): Class;
             static Find(OrigInName: string, Outer?: Object): BP_BHPlayerControllerBase_C;
             static Load(InName: string): BP_BHPlayerControllerBase_C;
@@ -142,8 +141,14 @@ declare module "ue" {
             UberGraphFrame: UE.PointerToUberGraphFrame;
             BaseInputMapping: UE.InputMappingContext;
             MoveAction: UE.InputAction;
+            TestAction: UE.InputAction;
             ExecuteUbergraph_BP_BHPlayerController(EntryPoint: number) : void;
             GetEnhanceInputSubsystem() : UE.EnhancedInputLocalPlayerSubsystem;
+            HandleMove() : void;
+            HandleTest() : void;
+            /*
+             *Event when play begins for this actor.
+             */
             ReceiveBeginPlay() : void;
             static StaticClass(): Class;
             static Find(OrigInName: string, Outer?: Object): BP_BHPlayerController_C;

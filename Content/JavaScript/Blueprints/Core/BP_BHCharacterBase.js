@@ -11,12 +11,10 @@ const ucls_BHCharBase = UE.Class.Load("/Game/Blueprints/Core/BP_BHCharacterBase.
 //获取对应js类，mixin要用到
 const jsCls_BHCharBase = puerts_1.blueprint.tojs(ucls_BHCharBase);
 /**
- * 创建继承并实现ts类接口的本体类，在这里编写类成员方法
- * 建议在蓝图创建类的成员字段，在脚本编写类的成员方法
+ * TS角色基类
  */
 class TS_BHCharBase {
     ReceiveBeginPlay() {
-        console.log("This message from TS_BHCharBase!");
     }
 }
 exports.TS_BHCharBase = TS_BHCharBase;

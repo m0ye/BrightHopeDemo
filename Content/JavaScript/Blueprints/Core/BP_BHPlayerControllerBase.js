@@ -11,12 +11,10 @@ const ucls_BHPCBase = UE.Class.Load("/Game/Blueprints/Core/BP_BHPlayerController
 //获取对应js类，mixin要用到
 const jsCls_BHPCBase = puerts_1.blueprint.tojs(ucls_BHPCBase);
 /**
- * 创建继承并实现ts类接口的本体类，在这里编写类成员方法
- * 建议在蓝图创建类的成员字段，在脚本编写类的成员方法
+ * TS控制器基类
  */
 class TS_BHPCBase {
     ReceiveBeginPlay() {
-        // console.log("This message from TS_BHPCBase!");
     }
 }
 exports.TS_BHPCBase = TS_BHPCBase;

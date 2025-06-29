@@ -15,12 +15,10 @@ export interface TS_BHPCBase extends UE.Game.Blueprints.Core.BP_BHPlayerControll
 }
 
 /**
- * 创建继承并实现ts类接口的本体类，在这里编写类成员方法
- * 建议在蓝图创建类的成员字段，在脚本编写类的成员方法
+ * TS控制器基类
  */
 export class TS_BHPCBase implements TS_BHPCBase {
     ReceiveBeginPlay() {
-        // console.log("This message from TS_BHPCBase!");
     }
 }
 
